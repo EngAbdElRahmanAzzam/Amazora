@@ -1,3 +1,5 @@
+import { RouterProvider } from "react-router-dom"
+import router from "./routes/router.config"
 
 
 function App() {
@@ -5,9 +7,7 @@ function App() {
 
   return (
     <>
-      <p className="read-the-docs text-red-500">
-        Click on the Vite and React logos to learn more
-      </p>
+      <RouterProvider router={router} />
     </>
   )
 }
