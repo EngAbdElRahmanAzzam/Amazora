@@ -9,7 +9,7 @@ import CartPage from "../pages/cart";
 import OrderPage from "../pages/order";
 import WishlistPage from "../pages/wishlist";
 import ProfilePage from "../pages/profile";
-import PrivcyPage from "../pages/privcy";
+import PrivacyPage from "../pages/privacy";
 import RootLayout from "../layouts/rootLayout";
 import ProtectedRoute from "../components/common/auth";
 
@@ -27,7 +27,7 @@ const router = createBrowserRouter(
                 <Route path="cart" element=<CartPage/> />
                 <Route path="wishlist" element=<ProtectedRoute isAllowed={auth} redirect="/" Page={<WishlistPage/> }/>/>
                 <Route path="order" element=<ProtectedRoute isAllowed={auth} redirect="/" Page={<OrderPage/> }/>/>
-                <Route path="privcy" element=<PrivcyPage/> />
+                <Route path="privacy" element=<PrivacyPage/> />
             </Route>
 
             <Route path="/auth" element=<AuthLayout/> errorElement=<ErrorPage/> >
