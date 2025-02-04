@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-}
-
 :root{
   --main-color:black;
   --second-color:orange;
@@ -33,4 +30,11 @@
   background-color: var(--hover-color);
 }
 
-
+*{
+  padding: 0px;
+  margin: 0px;
+}
+input:focus{
+  outline: none;
+  border: none;
+}
