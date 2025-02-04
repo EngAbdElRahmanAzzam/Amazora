@@ -1,15 +1,16 @@
+import { Link } from "react-router-dom";
 import CartIcon from "../../asserts/icons/cartIcon";
 import SearchIcon from "../../asserts/icons/searchIcon";
 
 export interface INavProps{
-  title:string;
-  text:string;
+  lineOne:string;
+  lineTwo:string;
 }
-const NavItem = ({title, text}:INavProps) => {
+const NavItem = ({lineOne, lineTwo}:INavProps) => {
   return(
-    <div className="text-white flex flex-col justify-between">
-      <p className="text-sm font-thin">{title}</p>
-      <p className="text-lg font-light">{text}</p>
+    <div className="text-white text-sm  flex flex-col justify-between">
+      <p className="font-bold">{lineOne}</p>
+      <p className="font-light">{lineTwo}</p>
     </div>
   )
 }
@@ -27,9 +28,11 @@ const RootNavbar = () => {
           </label>
         </div>
         <nav className="flex gap-2">
-            <NavItem title="Hello Guest" text="Sign in"/>
-            <NavItem title="Returns" text="& Orders"/>
-            <NavItem title="Your" text="Prime"/>
+            <Link to="/auth/sign-in">
+              <NavItem lineOne="Hello Guest" lineTwo="Sign in"/>
+            </Link>
+            <NavItem lineOne="Returns" lineTwo="& Orders"/>
+            <NavItem lineOne="Your" lineTwo="Prime"/>
         </nav>
         <CartIcon className="size-7"/>
     </header>
