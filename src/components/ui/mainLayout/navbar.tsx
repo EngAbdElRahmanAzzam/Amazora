@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import CartIcon from "../../asserts/icons/cartIcon";
-import SearchIcon from "../../asserts/icons/searchIcon";
+import SearchIcon from "../../../asserts/icons/searchIcon";
+import CartIcon from "../../../asserts/icons/cartIcon";
+
 
 export interface INavProps{
   lineOne:string;
@@ -23,7 +24,7 @@ const RootNavbar = () => {
 
         <div className="flex-grow relative">
           <input className="py-2 w-full"/>
-          <label className="bg-orange-300  p-2 absolute -right-0">
+          <label className=" p-2 absolute -right-0">
               <SearchIcon />
           </label>
         </div>

@@ -11,7 +11,7 @@ import WishlistPage from "../pages/wishlist";
 import ProfilePage from "../pages/profile";
 import PrivacyPage from "../pages/privacy";
 import RootLayout from "../layouts/rootLayout";
-import ProtectedRoute from "../components/common/auth";
+import ProtectedRoute from "../components/common/protectedRoute";
 
 
 const auth = false
