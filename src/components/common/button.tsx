@@ -7,7 +7,7 @@ interface IProps extends React.ComponentProps<"button">{
 
 const Button = ({className, children}:IProps)=>{
     return (
-        <button className={`${styles.smPy}  rounded-lg ${className}`}>
+        <button className={`${styles.smPy}  rounded-lg ${(className)? className:""}`}>
             {
                 children
             }

@@ -7,7 +7,7 @@ interface IProps extends React.ComponentProps<"h2">{
 
 const FormTitle = ({className, children}:IProps)=>{
     return (
-        <h2 className={`text-2xl font-bold ${styles.smM} ${className}`}>
+        <h2 className={`text-2xl font-bold ${styles.smM} ${(className)? className:""}`}>
             {
                 children
             }

@@ -21,7 +21,7 @@ const Input = ({state, setState, id , className ,children,...rest}:IProps) => {
             <label htmlFor={id} className='font-extralight'>{children}</label>
 
             <input 
-                className={`py-1 border-2 rounded-md ${styles.smPx} ${className}`}
+                className={`py-1 border-2 rounded-md ${styles.smPx} ${(className)? className:""}`}
                 id={id} 
                 value={state} 
                 onChange={onChange} 

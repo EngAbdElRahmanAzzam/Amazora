@@ -7,3 +7,7 @@ export const styles = {
     smM:"m-2",
     mdM:"m-4"
 }
+
+export const classes = {
+    link: `${styles.textMainColor} font-semibold underline`
+}
