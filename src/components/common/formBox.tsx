@@ -1,3 +1,5 @@
+import { authStyles, styles } from "../../data/styles";
+
 interface IProps{
     className?:string;
     children:React.ReactNode
@@ -5,7 +7,7 @@ interface IProps{
 
 const FormBox = ({className, children}:IProps) => {
   return (
-    <div className={`sm:w-72 md:w-96 mx-auto p-6 border-2 rounded-lg ${(className)? className:""}`}>
+    <div className={`mx-auto p-6 border-2 rounded-lg ${authStyles.formWidth} ${styles.mdM} ${(className)? className:""}`}>
         {
             children
         }
