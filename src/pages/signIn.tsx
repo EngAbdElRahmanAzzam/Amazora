@@ -46,7 +46,7 @@ const SignInPage = () => {
         </div>
 
 
-        <Button className={`block mx-auto border border-black transition-all hover:bg-black hover:text-white ${authStyles.formWidth}`}>
+        <Button className={`block mx-auto border border-black transition-all hover:bg-black hover:text-white ${styles.mdM} ${authStyles.formWidth}`}>
           <Link to="/auth/sign-up">Create your Amazon account</Link>
         </Button>
 
