@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import TestContext from "../context/auth/authContext.tsx";
+import TestContext from "../context/auth/auth.tsx";
 
 
 export function PrivcyPage() {
