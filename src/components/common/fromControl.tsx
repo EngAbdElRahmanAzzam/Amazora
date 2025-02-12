@@ -14,8 +14,8 @@ const Input = ({state, setState, id , className ,children,...rest}:IProps) => {
     //handlers
     const onChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
         setState(e.target.value)
-        console.log(state)
     }
+
     return (
        <div className={`flex flex-col ${styles.smM}`}>
             <label htmlFor={id} className='font-extralight'>{children}</label>

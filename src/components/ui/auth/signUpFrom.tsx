@@ -2,7 +2,7 @@ import { useState } from "react"
 import { authStyles, styles } from "../../../data/styles"
 import Button from "../../common/button"
 import Input from "../../common/fromControl"
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import { createUserWithEmailAndPassword} from "firebase/auth"
 import { auth } from "../../../firebase"
 import Loader from "../../common/loader"
 import { toast } from "sonner"
@@ -11,8 +11,10 @@ import { toast } from "sonner"
 
 const SignUpFrom = () => {
     //states
+
     //logic
     const [isLoading, updateIsLoading] = useState<boolean>(false)
+
     //form
     const [name, setName] = useState<string>('')
     const [email, setEmail] = useState<string>('')
@@ -25,6 +27,12 @@ const SignUpFrom = () => {
         updateIsLoading(true);
         try {
             await createUserWithEmailAndPassword(auth, email, password);
+            toast.success("Succsessful sign up, Wellcome",{
+                cancel:{
+                    label: 'Cancel',
+                    onClick: () => console.log(),
+                }
+            })
         } catch (error:any) {
             let msg = "failed register retry again"
             toast.error(msg,{
