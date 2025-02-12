@@ -26,8 +26,12 @@ const SignInForm = () => {
             onClick: () => console.log(),
         }
       })
-    }catch(error){
-      const msg = "failed register retry again"
+    }catch(error:any){
+      let msg = error.message
+      if(msg == undefined)
+      {
+         msg = "failed register retry again"
+      }
       toast.error(msg,{
           cancel:{
               label: 'Cancel',

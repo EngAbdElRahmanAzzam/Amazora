@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword} from "firebase/auth"
 import { auth } from "../../../firebase"
 import Loader from "../../common/loader"
 import { toast } from "sonner"
+import { Navigate } from "react-router-dom"
 
 
 
@@ -34,7 +35,11 @@ const SignUpFrom = () => {
                 }
             })
         } catch (error:any) {
-            let msg = "failed register retry again"
+            let msg = error.message
+            if(msg== undefined)
+            {
+                msg = "failed register retry again"
+            }
             toast.error(msg,{
                 cancel:{
                     label: 'Cancel',
