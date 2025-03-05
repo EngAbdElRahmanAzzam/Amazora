@@ -20,13 +20,15 @@ const Input = ({state, setState, id , className ,children,...rest}:IProps) => {
        <div className={`flex flex-col ${styles.smM}`}>
             <label htmlFor={id} className='font-extralight'>{children}</label>
 
-            <input 
-                className={`py-1 border-2 rounded-md ${styles.smPx} ${(className)? className:""}`}
-                id={id} 
-                value={state} 
-                onChange={onChange} 
-                {...rest}
-            />
+            <div>
+                <input 
+                    className={`w-full py-1 border-2 rounded-md ${styles.smPx} ${(className)? className:""}`}
+                    id={id} 
+                    value={state} 
+                    onChange={onChange} 
+                    {...rest}
+                />
+            </div>
        </div>
     )
 } 

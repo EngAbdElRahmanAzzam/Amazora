@@ -4,12 +4,12 @@ import { Navigate } from 'react-router-dom';
 interface IProps{
     redirect:string;
     isAllowed:boolean;
-    Page:ReactNode;
+    page:ReactNode;
 }
 
-const ProtectedRoute = ({isAllowed, Page, redirect}:IProps) => {
+const ProtectedRoute = ({isAllowed, page, redirect}:IProps) => {
     if(isAllowed)
-        return Page
+        return page
     return <Navigate to={redirect}/>
 }
 

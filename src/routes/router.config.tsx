@@ -1,4 +1,4 @@
-import { Navigate, Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+import { Navigate, Outlet, Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import NotFoundPage from "../pages/notFoundPage";
 import AuthLayout from "../layouts/authLayout";
 import ErrorPage from "../pages/errorPage";
@@ -12,27 +12,42 @@ import ProfilePage from "../pages/profile";
 import PrivacyPage from "../pages/privacy";
 import RootLayout from "../layouts/rootLayout";
 import ProtectedRoute from "../components/common/protectedRoute";
+import { routesUi } from ".";
 
 
 const auth = false
+const errorPage = <ErrorPage/>
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
-            <Route path="/home" element=<Navigate to="/"/> />
-
-            <Route path="/" element=<RootLayout/> errorElement=<ErrorPage/> >
-                <Route index element=<HomePage/> />
-                <Route path="profile" element=<ProtectedRoute isAllowed={auth} redirect="/" Page={<ProfilePage/> }/> />
-                <Route path="cart" element=<CartPage/> />
-                <Route path="wishlist" element=<ProtectedRoute isAllowed={auth} redirect="/" Page={<WishlistPage/> }/>/>
-                <Route path="order" element=<ProtectedRoute isAllowed={auth} redirect="/" Page={<OrderPage/> }/>/>
+            <Route path={routesUi.main.home} element={<RootLayout/>} errorElement={errorPage} >
+                <Route path="home" element={<HomePage/>} />
                 <Route path="privacy" element=<PrivacyPage/> />
+                <Route path="cart" element=<CartPage/> />
+
+                {/* group of protected route for auth / profile user */}
+                <Route path="profile" element=<ProtectedRoute isAllowed={auth} redirect={routesUi.main.home} page={<Outlet/>}/> >
+                    <Route index element={<ProfilePage/>}/>
+                    <Route path="wishlist" element={<WishlistPage/>} />
+                    <Route path="order" element={<OrderPage/>} />
+                </Route>
             </Route>
 
-            <Route path="/auth" element=<AuthLayout/> errorElement=<ErrorPage/> >
-                <Route path="sign-in" element=<ProtectedRoute isAllowed={!auth} redirect="/" Page={<SignInPage/>}/> />
-                <Route path="sign-up" element=<ProtectedRoute isAllowed={!auth} redirect="/" Page={<SignUpPage/>}/> />
+            {/* auth layout with childen auth pages */}
+            <Route 
+                path={routesUi.auth.authLayout} 
+                errorElement={errorPage}
+                element={
+                <ProtectedRoute 
+                        isAllowed={!auth} 
+                        redirect={routesUi.main.home} 
+                        page={<AuthLayout/>}
+                /> }
+                 
+            >
+                <Route path={routesUi.auth.signInChild} element={<SignInPage/>} />
+                <Route path={routesUi.auth.signUpChild} element={<SignUpPage/>} />
             </Route>
 
             <Route path="*" element=<NotFoundPage/> />

@@ -6,6 +6,7 @@
   --main-color:black;
   --second-color:orange;
   --hover-color:rgb(176, 169, 169);
+  --transition-var :transition: all 1s .2s cubic-bezier( 0.95, 0.46, 0.02, 0.61 );
 }
 
 ::selection{
@@ -35,9 +36,10 @@
   margin: 0px;
 }
 
+button,a,.app-transition{
+  transition: var(--transition-var);
+}
+
 button:active, a:active{
   scale: .9;
-}
-.custom-trai{
-  transition: all 1s .2s cubic-bezier( 0.95, 0.46, 0.02, 0.61 );
 }
