@@ -1,15 +1,16 @@
 import { Outlet } from "react-router-dom"
 import AuthNavbar from "../components/ui/auth/navbar"
 import AuthFooter from "../components/ui/auth/footer"
+import Layout from "../components/common/layout"
 
 
 const AuthLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <Layout>
         <AuthNavbar />
         <Outlet />
         <AuthFooter />
-    </div>
+    </Layout>
   )
 }
 
