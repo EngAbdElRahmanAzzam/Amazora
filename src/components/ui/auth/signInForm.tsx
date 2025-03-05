@@ -6,9 +6,13 @@ import Loader from "../../common/loader"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../../../firebase"
 import { toast } from "sonner"
+import { useNavigate } from "react-router-dom"
+import { useupdateAuthContext } from "../../../context/auth"
 
 
 const SignInForm = () => {
+  const navigate  = useNavigate();
+  const updateAuth = useupdateAuthContext()
   //states
   const [isLoading, updateIsLoading] = useState<boolean>(false) 
   const [email, setEmail] = useState<string>('')
@@ -19,13 +23,15 @@ const SignInForm = () => {
     e.preventDefault()
     updateIsLoading(false)
     try{
-      await signInWithEmailAndPassword(auth,email, password)
+      const {user} =await signInWithEmailAndPassword(auth,email, password)
       toast.success("Succsessful sign in, Wellcome back",{
         cancel:{
             label: 'Cancel',
             onClick: () => console.log(),
         }
       })
+      updateAuth({type:'SET_USER', user:user.email})
+      navigate('/')
     }catch(error:any){
       let msg = error.message
       if(msg == undefined)

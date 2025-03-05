@@ -7,7 +7,35 @@ import { Link } from "react-router-dom"
 import DownArrowIcon from "../../asserts/icons/downArrowIcon"
 import SignInForm from "../../components/ui/auth/signInForm"
 
-const NeedHelp = () =>{
+const SignInPage = () => {
+  return (
+      <div>
+        <FormBox>
+
+          <FormTitle>Sign in</FormTitle>
+          <SignInForm/>
+          <p className="text-sm font-light mx-auto">
+            By continuing, you agree to Amazora's Conditions of Use and <Link className={`${styles.textMainColor} font-semibold underline`} to="/privacy">Privacy Notice.</Link>
+          </p>
+          <SignInPage.NeedHelp/>
+
+        </FormBox>
+
+        {/* divider */}
+        
+        <div className={`font-light relative border mx-auto ${styles.mdM} ${styles.xlgMt} ${authStyles.formWidth}`}>
+          <p className="bg-white px-2 absolute left-1/2 -translate-x-1/2 -translate-y-1/2 ">New To Amazora</p>
+        </div>
+
+        <Button className={`block mx-auto border border-black transition-all hover:bg-black hover:text-white ${styles.mdM} ${authStyles.formWidth}`}>
+          <Link to="/auth/sign-up">Create your Amazon account</Link>
+        </Button>
+
+      </div>
+  )
+}
+
+SignInPage.NeedHelp = () =>{
   //states
   const [isActive , updateIsActive] = useState<boolean>(false)
   // handlers
@@ -23,34 +51,6 @@ const NeedHelp = () =>{
       >Forget Password</Link>
 
     </div>
-  )
-}
-
-const SignInPage = () => {
-  return (
-      <div>
-        <FormBox>
-
-          <FormTitle>Sign in</FormTitle>
-          <SignInForm/>
-          <p className="text-sm font-light mx-auto">
-            By continuing, you agree to Amazora's Conditions of Use and <Link className={`${styles.textMainColor} font-semibold underline`} to="/privacy">Privacy Notice.</Link>
-          </p>
-          <NeedHelp/>
-
-        </FormBox>
-
-        {/* divider */}
-        
-        <div className={`font-light relative border mx-auto ${styles.mdM} ${styles.xlgMt} ${authStyles.formWidth}`}>
-          <p className="bg-white px-2 absolute left-1/2 -translate-x-1/2 -translate-y-1/2 ">New To Amazora</p>
-        </div>
-
-        <Button className={`block mx-auto border border-black transition-all hover:bg-black hover:text-white ${styles.mdM} ${authStyles.formWidth}`}>
-          <Link to="/auth/sign-up">Create your Amazon account</Link>
-        </Button>
-
-      </div>
   )
 }
 
