@@ -1,8 +1,8 @@
-import FormBox from "../components/common/formBox"
-import FormTitle from "../components/common/formTitle"
-import {classes, styles } from "../data/styles"
+import FormBox from "../../components/common/formBox"
+import FormTitle from "../../components/common/formTitle"
+import {classes, styles } from "../../data/styles"
 import { Link } from "react-router-dom"
-import SignUpFrom from "../components/ui/auth/signUpFrom"
+import SignUpFrom from "../../components/ui/auth/signUpFrom"
 
 const SignUpPage = () => {
 

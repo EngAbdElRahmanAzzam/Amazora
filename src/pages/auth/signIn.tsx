@@ -1,11 +1,11 @@
-import Button from "../components/common/button"
-import FormBox from "../components/common/formBox"
-import FormTitle from "../components/common/formTitle"
+import Button from "../../components/common/button"
+import FormBox from "../../components/common/formBox"
+import FormTitle from "../../components/common/formTitle"
 import { useState } from "react"
-import { authStyles, classes, styles } from "../data/styles"
+import { authStyles, classes, styles } from "../../data/styles"
 import { Link } from "react-router-dom"
-import DownArrowIcon from "../asserts/icons/downArrowIcon"
-import SignInForm from "../components/ui/auth/signInForm"
+import DownArrowIcon from "../../asserts/icons/downArrowIcon"
+import SignInForm from "../../components/ui/auth/signInForm"
 
 const NeedHelp = () =>{
   //states
